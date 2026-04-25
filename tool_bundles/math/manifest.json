@@ -1,0 +1,129 @@
+{
+  "schema_version": "1",
+  "id": "math",
+  "name": "Math Tools",
+  "version": "0.1.0",
+  "description": "Bounded local math tools for algebra, matrices, integration, and optimization.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "solve_equation",
+      "adapter": "equation_solve_adapter",
+      "description": "Solve a bounded algebraic equation for one target variable.",
+      "app_capability_key": "math.solve_equation",
+      "app_description": "Solve a bounded equation for a target variable.",
+      "command_aliases": ["solve equation"],
+      "trigger_keywords": ["solve", "equation"],
+      "structural_patterns": ["contains_equation", "algebraic_variable_form", "polynomial_form", "numeric_variable_expression"],
+      "intent_hints": ["solve", "find"],
+      "routing_priority": 90,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Math execution should not be used to operationalize dual-use or harm-enabling requests.",
+      "input_schema": {
+        "equation": "string",
+        "variable": "string",
+        "constraints": "object|null"
+      },
+      "output_schema": {
+        "artifacts": ["equation_solution.json"]
+      }
+    },
+    {
+      "id": "symbolic_simplify",
+      "adapter": "symbolic_simplify_adapter",
+      "description": "Simplify a bounded algebraic expression.",
+      "app_capability_key": "math.symbolic_simplify",
+      "app_description": "Simplify a bounded algebraic expression.",
+      "command_aliases": ["simplify expression"],
+      "trigger_keywords": ["simplify", "factor", "expand"],
+      "structural_patterns": ["algebraic_variable_form", "polynomial_form", "numeric_variable_expression"],
+      "intent_hints": ["simplify"],
+      "routing_priority": 78,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Expression tooling stays bounded and should not be used to operationalize dual-use prompts.",
+      "input_schema": {
+        "expression": "string",
+        "target_form": "string|null"
+      },
+      "output_schema": {
+        "artifacts": ["symbolic_simplify.json"]
+      }
+    },
+    {
+      "id": "matrix_operations",
+      "adapter": "matrix_operations_adapter",
+      "description": "Perform bounded matrix arithmetic and structural operations.",
+      "app_capability_key": "math.matrix_operations",
+      "app_description": "Run bounded matrix operations.",
+      "command_aliases": ["analyze matrix"],
+      "trigger_keywords": ["matrix"],
+      "structural_patterns": ["matrix_literal_or_operation"],
+      "intent_hints": ["analyze", "compute"],
+      "routing_priority": 82,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Matrix analysis should stay unavailable for dual-use tool execution.",
+      "input_schema": {
+        "operation": "string",
+        "matrix_a": "array",
+        "matrix_b": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["matrix_operation.json"]
+      }
+    },
+    {
+      "id": "numerical_integrate",
+      "adapter": "numerical_integrate_adapter",
+      "description": "Approximate a definite integral for a bounded expression.",
+      "app_capability_key": "math.numerical_integrate",
+      "app_description": "Approximate a definite integral.",
+      "command_aliases": ["integrate function"],
+      "trigger_keywords": ["integrate", "integral", "derivative"],
+      "structural_patterns": ["integration_bounds", "numeric_variable_expression"],
+      "intent_hints": ["integrate", "compute"],
+      "routing_priority": 80,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Numerical math should not turn dual-use prompts into executable assistance.",
+      "input_schema": {
+        "expression": "string",
+        "variable": "string",
+        "lower_bound": "number",
+        "upper_bound": "number",
+        "method": "string",
+        "steps": "number"
+      },
+      "output_schema": {
+        "artifacts": ["numerical_integral.json"]
+      }
+    },
+    {
+      "id": "optimize_function",
+      "adapter": "optimize_function_adapter",
+      "description": "Find an approximate bounded optimum for a scalar function.",
+      "app_capability_key": "math.optimize_function",
+      "app_description": "Optimize a bounded scalar function.",
+      "command_aliases": ["optimize function"],
+      "trigger_keywords": ["optimize", "minimize", "maximize"],
+      "structural_patterns": ["optimization_bounds", "numeric_variable_expression"],
+      "intent_hints": ["optimize"],
+      "routing_priority": 80,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Optimization should remain blocked for dual-use execution paths.",
+      "input_schema": {
+        "expression": "string",
+        "variable": "string",
+        "bounds": "object",
+        "objective": "string",
+        "samples": "number"
+      },
+      "output_schema": {
+        "artifacts": ["function_optimization.json"]
+      }
+    }
+  ]
+}

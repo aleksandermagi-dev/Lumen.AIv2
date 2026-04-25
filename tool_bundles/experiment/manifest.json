@@ -1,0 +1,102 @@
+{
+  "schema_version": "1",
+  "id": "experiment",
+  "name": "Experiment Tools",
+  "version": "0.1.0",
+  "description": "Bounded scientific-planning tools for experiment design, variables, controls, and analysis planning.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "design",
+      "adapter": "design_adapter",
+      "description": "Design a bounded experiment around a hypothesis or question.",
+      "app_capability_key": "experiment.design",
+      "app_description": "Design a bounded experiment.",
+      "command_aliases": ["design experiment"],
+      "trigger_keywords": ["experiment", "design", "hypothesis", "test"],
+      "structural_patterns": ["experiment_design_phrase", "scientific_method_framing"],
+      "intent_hints": ["design experiment", "test hypothesis"],
+      "routing_priority": 84,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Experiment planning stays descriptive and non-operational.",
+      "input_schema": {
+        "topic": "string|null",
+        "hypothesis": "string|null",
+        "independent_variable": "string|null",
+        "dependent_variable": "string|null",
+        "controls": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["experiment_design.json"]
+      }
+    },
+    {
+      "id": "variables",
+      "adapter": "variables_adapter",
+      "description": "Identify experiment variables and likely confounders.",
+      "app_capability_key": "experiment.variables",
+      "app_description": "Identify experiment variables.",
+      "command_aliases": ["identify variables"],
+      "trigger_keywords": ["variables", "experiment", "dependent", "independent"],
+      "structural_patterns": ["variables_controls_phrase"],
+      "intent_hints": ["identify variables"],
+      "routing_priority": 82,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Variable analysis stays high-level and descriptive.",
+      "input_schema": {
+        "topic": "string|null",
+        "independent_variable": "string|null",
+        "dependent_variable": "string|null"
+      },
+      "output_schema": {
+        "artifacts": ["experiment_variables.json"]
+      }
+    },
+    {
+      "id": "controls",
+      "adapter": "controls_adapter",
+      "description": "Recommend controls and bias mitigations for a bounded experiment.",
+      "app_capability_key": "experiment.controls",
+      "app_description": "Recommend experiment controls.",
+      "command_aliases": ["identify controls"],
+      "trigger_keywords": ["controls", "control group", "experiment"],
+      "structural_patterns": ["variables_controls_phrase"],
+      "intent_hints": ["identify controls"],
+      "routing_priority": 82,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Controls guidance stays descriptive and safe.",
+      "input_schema": {
+        "topic": "string|null",
+        "controls": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["experiment_controls.json"]
+      }
+    },
+    {
+      "id": "analysis_plan",
+      "adapter": "analysis_plan_adapter",
+      "description": "Create a bounded experiment analysis plan.",
+      "app_capability_key": "experiment.analysis_plan",
+      "app_description": "Create an experiment analysis plan.",
+      "command_aliases": ["plan experiment analysis"],
+      "trigger_keywords": ["analysis plan", "experiment", "analyze results"],
+      "structural_patterns": ["experiment_analysis_phrase", "scientific_method_framing"],
+      "intent_hints": ["analysis plan", "analyze experiment"],
+      "routing_priority": 83,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Analysis planning stays descriptive and bounded.",
+      "input_schema": {
+        "topic": "string|null",
+        "dependent_variable": "string|null"
+      },
+      "output_schema": {
+        "artifacts": ["experiment_analysis_plan.json"]
+      }
+    }
+  ]
+}

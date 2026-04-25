@@ -1,0 +1,33 @@
+{
+  "schema_version": "1",
+  "id": "astronomy",
+  "name": "Astronomy Wrappers",
+  "version": "0.1.0",
+  "description": "Thin astronomy-facing wrappers built on the shared simulation helpers.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "orbit_profile",
+      "adapter": "orbit_profile_adapter",
+      "description": "Build an astronomy-facing orbit profile.",
+      "app_capability_key": "astronomy.orbit_profile",
+      "app_description": "Build an astronomy-facing orbit profile.",
+      "command_aliases": ["analyze orbit profile", "astronomy orbit profile", "orbit profile"],
+      "trigger_keywords": ["orbit", "eccentricity", "semi-major", "astronomy"],
+      "structural_patterns": ["orbit_profile_phrase"],
+      "intent_hints": ["orbit profile", "analyze orbit"],
+      "routing_priority": 80,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Orbit profiling stays bounded and descriptive.",
+      "input_schema": {
+        "semi_major_axis": "number|null",
+        "eccentricity": "number|null",
+        "samples": "number|null"
+      },
+      "output_schema": {
+        "artifacts": ["astronomy_orbit_profile.json", "astronomy_orbit_profile.svg"]
+      }
+    }
+  ]
+}

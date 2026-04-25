@@ -1,0 +1,41 @@
+# Python / virtual environment
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+/.venv/
+/venv/
+/env/
+
+# Local configuration
+.env
+/lumen.toml
+!lumen.toml.example
+
+# Build and packaged artifacts
+/build/
+/dist/
+*.egg-info/
+*.spec.bak
+
+# Local runtime data and generated validation workspaces
+/data/
+/tmp_history_debug/
+
+# Local QA/debug artifacts kept on this machine
+/Debug Logs/
+/New UI/
+/bug ref txt/
+/MAST file/
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+*.swp

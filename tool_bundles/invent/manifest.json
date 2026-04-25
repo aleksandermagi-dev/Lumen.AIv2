@@ -1,0 +1,99 @@
+{
+  "schema_version": "1",
+  "id": "invent",
+  "name": "Invent Tools",
+  "version": "0.1.0",
+  "description": "Bounded concept-generation and design-evaluation tools.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "generate_concepts",
+      "adapter": "generate_concepts_adapter",
+      "description": "Generate bounded concept directions for a design brief under constraints.",
+      "app_capability_key": "invent.generate_concepts",
+      "app_description": "Generate bounded concept directions.",
+      "command_aliases": ["generate concept", "generate concepts"],
+      "trigger_keywords": ["concept", "constraints", "design", "brief"],
+      "structural_patterns": ["concept_generation_phrase", "constraint_framing"],
+      "intent_hints": ["generate concept", "under constraints"],
+      "routing_priority": 82,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Concept generation stays high-level and bounded.",
+      "input_schema": {
+        "brief": "string|null",
+        "constraints": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["invent_concepts.json"]
+      }
+    },
+    {
+      "id": "constraint_check",
+      "adapter": "constraint_check_adapter",
+      "description": "Check a concept against stated constraints.",
+      "app_capability_key": "invent.constraint_check",
+      "app_description": "Check a concept against constraints.",
+      "command_aliases": ["check concept constraints", "check constraints"],
+      "trigger_keywords": ["constraints", "concept", "check", "verify"],
+      "structural_patterns": ["constraint_check_phrase", "constraint_framing"],
+      "intent_hints": ["check constraints", "constraint check"],
+      "routing_priority": 81,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Constraint checks stay descriptive and bounded.",
+      "input_schema": {
+        "brief": "string|null",
+        "concept": "string|null",
+        "constraints": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["invent_constraint_check.json"]
+      }
+    },
+    {
+      "id": "material_suggestions",
+      "adapter": "material_suggestions_adapter",
+      "description": "Suggest material classes for a bounded design brief.",
+      "app_capability_key": "invent.material_suggestions",
+      "app_description": "Suggest material classes for a design brief.",
+      "command_aliases": ["suggest materials"],
+      "trigger_keywords": ["materials", "material", "constraints", "design"],
+      "structural_patterns": ["material_selection_phrase"],
+      "intent_hints": ["suggest materials"],
+      "routing_priority": 80,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Material suggestions stay at the material-class level.",
+      "input_schema": {
+        "brief": "string|null",
+        "constraints": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["invent_material_suggestions.json"]
+      }
+    },
+    {
+      "id": "failure_modes",
+      "adapter": "failure_modes_adapter",
+      "description": "Analyze likely failure modes for a bounded concept.",
+      "app_capability_key": "invent.failure_modes",
+      "app_description": "Analyze likely failure modes for a concept.",
+      "command_aliases": ["analyze failure modes"],
+      "trigger_keywords": ["failure", "failure modes", "concept", "design"],
+      "structural_patterns": ["failure_modes_phrase"],
+      "intent_hints": ["failure modes", "analyze failure modes"],
+      "routing_priority": 80,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Failure-mode analysis stays high-level and non-operational.",
+      "input_schema": {
+        "brief": "string|null",
+        "concept": "string|null"
+      },
+      "output_schema": {
+        "artifacts": ["invent_failure_modes.json"]
+      }
+    }
+  ]
+}

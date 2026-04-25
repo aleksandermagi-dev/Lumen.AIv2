@@ -1,0 +1,35 @@
+{
+  "schema_version": "1",
+  "id": "report",
+  "name": "Reporting Tools",
+  "version": "0.1.0",
+  "description": "Local reporting bundle for session confidence and posture summaries.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "session.confidence",
+      "adapter": "session_confidence_adapter",
+      "description": "Generate a local confidence and posture summary for the current session.",
+      "app_capability_key": "report.session_confidence",
+      "app_description": "Generate a confidence report for the current session.",
+      "command_aliases": [
+        "report session confidence",
+        "summarize confidence",
+        "summarize session confidence"
+      ],
+      "trigger_keywords": ["confidence", "posture", "session confidence", "confidence report"],
+      "structural_patterns": ["session_confidence_phrase"],
+      "intent_hints": ["report", "summarize"],
+      "routing_priority": 60,
+      "tool_intent_required": true,
+      "safety_level": "allowed",
+      "safety_notes": "Session reporting is read-only and stays within local workspace boundaries.",
+      "input_schema": {},
+      "output_schema": {
+        "artifacts": [
+          "session_confidence_report.json"
+        ]
+      }
+    }
+  ]
+}

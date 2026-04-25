@@ -1,0 +1,95 @@
+{
+  "schema_version": "1",
+  "id": "paper",
+  "name": "Paper Research Tools",
+  "version": "0.1.0",
+  "description": "Local paper-oriented search and analysis helpers with explicit runtime diagnostics.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "search",
+      "adapter": "search_adapter",
+      "description": "Search a configured or attached paper source.",
+      "app_capability_key": "paper.search",
+      "app_description": "Search paper sources.",
+      "command_aliases": ["search papers"],
+      "trigger_keywords": ["paper", "papers", "literature", "research"],
+      "structural_patterns": ["paper_search_phrase"],
+      "intent_hints": ["search", "find"],
+      "routing_priority": 90,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Paper search stays bounded to configured or attached sources.",
+      "input_schema": {
+        "query": "string",
+        "catalog": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["paper_search.json", "artifact_manifest.json"]
+      }
+    },
+    {
+      "id": "summary",
+      "adapter": "summary_adapter",
+      "description": "Summarize a supplied or attached paper text.",
+      "app_capability_key": "paper.summary",
+      "app_description": "Summarize paper text.",
+      "command_aliases": ["summarize paper"],
+      "trigger_keywords": ["paper", "summary", "summarize", "abstract"],
+      "structural_patterns": ["paper_summary_phrase", "paper_text_file"],
+      "intent_hints": ["summarize", "explain"],
+      "routing_priority": 89,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Paper summary stays bounded to supplied text or attached paper files.",
+      "input_schema": {
+        "paper_text": "string|null"
+      },
+      "output_schema": {
+        "artifacts": ["paper_summary.json", "artifact_manifest.json"]
+      }
+    },
+    {
+      "id": "compare",
+      "adapter": "compare_adapter",
+      "description": "Compare two supplied paper texts.",
+      "app_capability_key": "paper.compare",
+      "app_description": "Compare supplied papers.",
+      "command_aliases": ["compare papers"],
+      "trigger_keywords": ["paper", "compare", "papers"],
+      "structural_patterns": ["paper_compare_phrase"],
+      "intent_hints": ["compare"],
+      "routing_priority": 89,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Paper comparison stays bounded to supplied texts or attached paper collections.",
+      "input_schema": {
+        "papers": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["paper_compare.json", "artifact_manifest.json"]
+      }
+    },
+    {
+      "id": "extract.methods",
+      "adapter": "extract_methods_adapter",
+      "description": "Extract method/procedure details from a supplied paper text.",
+      "app_capability_key": "paper.extract_methods",
+      "app_description": "Extract methods from paper text.",
+      "command_aliases": ["extract paper methods"],
+      "trigger_keywords": ["methods", "methodology", "approach", "paper"],
+      "structural_patterns": ["methods_extraction_phrase", "paper_text_file"],
+      "intent_hints": ["extract", "methods"],
+      "routing_priority": 88,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Method extraction stays bounded to supplied paper text.",
+      "input_schema": {
+        "paper_text": "string|null"
+      },
+      "output_schema": {
+        "artifacts": ["paper_methods.json", "artifact_manifest.json"]
+      }
+    }
+  ]
+}

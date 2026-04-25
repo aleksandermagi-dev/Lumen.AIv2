@@ -1,0 +1,32 @@
+{
+  "schema_version": "1",
+  "id": "design",
+  "name": "Design Tools",
+  "version": "0.1.0",
+  "description": "Bounded design and system-spec tooling for buildable planning outputs.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "system_spec",
+      "adapter": "system_spec_adapter",
+      "description": "Generate a structured, buildable system specification.",
+      "app_capability_key": "design.system_spec",
+      "app_description": "Generate a bounded system spec from a design brief.",
+      "command_aliases": ["generate system spec", "design system spec", "generate design spec"],
+      "trigger_keywords": ["generate system spec", "design system spec", "generate design spec", "system spec", "design spec", "architecture spec"],
+      "structural_patterns": ["design_spec_phrase", "constraint_framing", "repo_structure_phrase"],
+      "intent_hints": ["generate", "design", "specify"],
+      "routing_priority": 70,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Design generation should stay non-operational for unsafe or dual-use requests.",
+      "input_schema": {
+        "brief": "string",
+        "interaction_style": "string|null"
+      },
+      "output_schema": {
+        "artifacts": ["system_spec.json"]
+      }
+    }
+  ]
+}

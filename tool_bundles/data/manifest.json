@@ -1,0 +1,122 @@
+{
+  "schema_version": "1",
+  "id": "data",
+  "name": "Data Analysis Tools",
+  "version": "0.1.0",
+  "description": "Structured local data analysis and visualization helpers for tabular inputs.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "describe",
+      "adapter": "describe_adapter",
+      "description": "Describe a structured dataset and summarize its columns and basic statistics.",
+      "app_capability_key": "data.describe",
+      "app_description": "Describe a structured dataset.",
+      "command_aliases": ["describe data"],
+      "trigger_keywords": ["dataset", "data", "table", "csv", "json"],
+      "structural_patterns": ["dataset_analysis_phrase", "structured_data_file"],
+      "intent_hints": ["describe", "inspect", "summarize"],
+      "routing_priority": 88,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Local data analysis should remain bounded to user-provided structured inputs.",
+      "input_schema": {
+        "records": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["data_description.json", "artifact_manifest.json"]
+      }
+    },
+    {
+      "id": "correlate",
+      "adapter": "correlate_adapter",
+      "description": "Compute pairwise correlations across numeric columns in a structured dataset.",
+      "app_capability_key": "data.correlate",
+      "app_description": "Correlate numeric fields in structured data.",
+      "command_aliases": ["correlate data"],
+      "trigger_keywords": ["correlate", "correlation", "dataset", "data"],
+      "structural_patterns": ["dataset_analysis_phrase", "structured_data_file"],
+      "intent_hints": ["correlate", "compare"],
+      "routing_priority": 88,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Correlation analysis should stay bounded to user-provided structured data.",
+      "input_schema": {
+        "records": "array|null",
+        "columns": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["data_correlation.json", "artifact_manifest.json"]
+      }
+    },
+    {
+      "id": "regression",
+      "adapter": "regression_adapter",
+      "description": "Run a bounded linear regression on two numeric columns.",
+      "app_capability_key": "data.regression",
+      "app_description": "Run bounded linear regression on structured data.",
+      "command_aliases": ["run regression"],
+      "trigger_keywords": ["regression", "fit", "trend", "dataset", "data"],
+      "structural_patterns": ["trend_analysis_phrase", "structured_data_file"],
+      "intent_hints": ["analyze", "regress", "fit"],
+      "routing_priority": 89,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Regression should remain a bounded descriptive analysis tool.",
+      "input_schema": {
+        "records": "array|null",
+        "x_column": "string|null",
+        "y_column": "string|null"
+      },
+      "output_schema": {
+        "artifacts": ["data_regression.json", "artifact_manifest.json"]
+      }
+    },
+    {
+      "id": "cluster",
+      "adapter": "cluster_adapter",
+      "description": "Group rows into simple bounded numeric clusters.",
+      "app_capability_key": "data.cluster",
+      "app_description": "Cluster structured data by numeric fields.",
+      "command_aliases": ["cluster data"],
+      "trigger_keywords": ["cluster", "group", "dataset", "data"],
+      "structural_patterns": ["dataset_analysis_phrase", "structured_data_file"],
+      "intent_hints": ["cluster", "group"],
+      "routing_priority": 86,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Clustering should remain bounded to user-provided structured inputs.",
+      "input_schema": {
+        "records": "array|null",
+        "columns": "array|null",
+        "cluster_count": "number|null"
+      },
+      "output_schema": {
+        "artifacts": ["data_clusters.json", "artifact_manifest.json"]
+      }
+    },
+    {
+      "id": "visualize",
+      "adapter": "visualize_adapter",
+      "description": "Generate a simple bounded chart from structured numeric data.",
+      "app_capability_key": "data.visualize",
+      "app_description": "Visualize structured data.",
+      "command_aliases": ["visualize data"],
+      "trigger_keywords": ["visualize", "plot", "chart", "graph"],
+      "structural_patterns": ["trend_analysis_phrase", "structured_data_file"],
+      "intent_hints": ["visualize", "plot", "graph"],
+      "routing_priority": 90,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Visualization should remain bounded to user-provided structured data.",
+      "input_schema": {
+        "records": "array|null",
+        "x_column": "string|null",
+        "y_column": "string|null"
+      },
+      "output_schema": {
+        "artifacts": ["data_visualization.json", "data_visualization.svg", "artifact_manifest.json"]
+      }
+    }
+  ]
+}

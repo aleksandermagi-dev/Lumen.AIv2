@@ -1,0 +1,34 @@
+{
+  "schema_version": "1",
+  "id": "physics",
+  "name": "Physics Wrappers",
+  "version": "0.1.0",
+  "description": "Thin physics-facing wrappers on top of shared modeling helpers.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "energy_model",
+      "adapter": "energy_model_adapter",
+      "description": "Build a bounded classical energy model.",
+      "app_capability_key": "physics.energy_model",
+      "app_description": "Build a bounded classical energy model.",
+      "command_aliases": ["model energy", "energy model", "physics energy model"],
+      "trigger_keywords": ["energy", "mass", "velocity", "height"],
+      "structural_patterns": ["energy_model_phrase"],
+      "intent_hints": ["model energy", "energy model"],
+      "routing_priority": 79,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Energy modeling stays bounded and classical.",
+      "input_schema": {
+        "mass": "number|null",
+        "velocity": "number|null",
+        "height": "number|null",
+        "gravity": "number|null"
+      },
+      "output_schema": {
+        "artifacts": ["physics_energy_model.json", "physics_energy_model.svg"]
+      }
+    }
+  ]
+}

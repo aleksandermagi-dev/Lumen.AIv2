@@ -1,0 +1,34 @@
+{
+  "schema_version": "1",
+  "id": "workspace",
+  "name": "Workspace Tools",
+  "version": "0.1.0",
+  "description": "Local workspace inspection bundle for registry, routing, and reporting validation.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "inspect.structure",
+      "adapter": "workspace_inspect_adapter",
+      "description": "Inspect the current workspace structure and summarize major top-level areas.",
+      "app_capability_key": "workspace.inspect_structure",
+      "app_description": "Inspect and summarize the local workspace structure.",
+      "command_aliases": [
+        "inspect workspace",
+        "summarize workspace"
+      ],
+      "trigger_keywords": ["workspace", "repo", "project tree", "project structure", "workspace structure", "repo structure", "top level", "structure"],
+      "structural_patterns": ["workspace_inspection"],
+      "intent_hints": ["inspect", "summarize", "show"],
+      "routing_priority": 55,
+      "tool_intent_required": true,
+      "safety_level": "allowed",
+      "safety_notes": "Workspace inspection is read-only and allowed within normal execution safety bounds.",
+      "input_schema": {},
+      "output_schema": {
+        "artifacts": [
+          "workspace_summary.json"
+        ]
+      }
+    }
+  ]
+}

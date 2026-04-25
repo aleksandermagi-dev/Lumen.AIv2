@@ -1,0 +1,659 @@
+{
+  "label": "packaged_smoke_validation",
+  "execution_mode": "packaged",
+  "readiness": {
+    "execution_mode": "packaged",
+    "repo_root": "C:\\Users\\aleks\\Desktop\\lumen1.1",
+    "data_root": "C:\\Users\\aleks\\Desktop\\lumen1.1\\tmp_full_validation_packaged_4",
+    "bundle_ids": [
+      "anh",
+      "astronomy",
+      "content",
+      "data",
+      "design",
+      "experiment",
+      "invent",
+      "knowledge",
+      "math",
+      "memory",
+      "paper",
+      "physics",
+      "report",
+      "simulate",
+      "system",
+      "viz",
+      "workspace"
+    ],
+    "capability_ids": [
+      "astronomy.anh_spectral_scan",
+      "astronomy.orbit_profile",
+      "content.format_platform",
+      "content.generate_batch",
+      "content.generate_ideas",
+      "data.cluster",
+      "data.correlate",
+      "data.describe",
+      "data.regression",
+      "data.visualize",
+      "design.system_spec",
+      "experiment.analysis_plan",
+      "experiment.controls",
+      "experiment.design",
+      "experiment.variables",
+      "invent.constraint_check",
+      "invent.failure_modes",
+      "invent.generate_concepts",
+      "invent.material_suggestions",
+      "knowledge.cluster",
+      "knowledge.contradictions",
+      "knowledge.find_paths",
+      "knowledge.link",
+      "math.matrix_operations",
+      "math.numerical_integrate",
+      "math.optimize_function",
+      "math.solve_equation",
+      "math.symbolic_simplify",
+      "memory.session_timeline",
+      "paper.compare",
+      "paper.extract_methods",
+      "paper.search",
+      "paper.summary",
+      "physics.energy_model",
+      "report.session_confidence",
+      "simulate.diffusion",
+      "simulate.orbit",
+      "simulate.population",
+      "simulate.system",
+      "system.analyze_architecture",
+      "system.generate_docs",
+      "system.suggest_refactor",
+      "viz.graph",
+      "viz.network",
+      "viz.parameter_space",
+      "viz.timeline",
+      "workspace.inspect_structure"
+    ],
+    "source_surface": {
+      "reasoning_spine": true,
+      "state_aware_routing": true,
+      "mode_integrated_behavior": true,
+      "tool_as_reasoning_step": true,
+      "nlg_response_shaping": true,
+      "required_bundles_present": true,
+      "required_capabilities_present": true,
+      "simulate_bundle_present": true,
+      "experiment_bundle_present": true,
+      "invent_bundle_present": true,
+      "domain_wrappers_present": {
+        "physics.energy_model": true,
+        "astronomy.orbit_profile": true
+      }
+    },
+    "docs_alignment": {
+      "readme_present": true,
+      "readme_mentions_required_bundles": true,
+      "readme_mentions_modes": true,
+      "readme_mentions_soft_stop": true,
+      "readme_mentions_content_caveat": true,
+      "readme_mentions_anh_live": true
+    },
+    "runtime_truth": {
+      "content": {
+        "status": "runtime_provider_gated",
+        "label": "runtime/provider gated",
+        "details": "Content idea generation is unavailable until a hosted content provider is configured."
+      },
+      "anh": {
+        "status": "real_execution_verified",
+        "label": "real execution verified",
+        "details": "ANH analyzed 1 file(s) and found 1 candidate file(s). Strongest candidate: lb6f07nrq_x1d.fits at 43.357443248540456 km/s with depth 1.0."
+      },
+      "provider": {
+        "provider_id": "openai_responses",
+        "deployment_mode": "hybrid"
+      }
+    },
+    "doctor_checks": {
+      "tool_registry": {
+        "status": "ok",
+        "details": "Discovered bundles: {'anh': ['spectral_dip_scan'], 'astronomy': ['orbit_profile'], 'content': ['generate_ideas', 'generate_batch', 'format_platform'], 'data': ['describe', 'correlate', 'regression', 'cluster', 'visualize'], 'design': ['system_spec'], 'experiment': ['design', 'variables', 'controls', 'analysis_plan'], 'invent': ['generate_concepts', 'constraint_check', 'material_suggestions', 'failure_modes'], 'knowledge': ['link', 'find_paths', 'cluster', 'contradictions'], 'math': ['solve_equation', 'symbolic_simplify', 'matrix_operations', 'numerical_integrate', 'optimize_function'], 'memory': ['session.timeline'], 'paper': ['search', 'summary', 'compare', 'extract.methods'], 'physics': ['energy_model'], 'report': ['session.confidence'], 'simulate': ['system', 'orbit', 'population', 'diffusion'], 'system': ['analyze.architecture', 'suggest.refactor', 'generate.docs'], 'viz': ['graph', 'network', 'timeline', 'parameter_space'], 'workspace': ['inspect.structure']}",
+        "extra": {}
+      },
+      "runtime_resources": {
+        "status": "ok",
+        "details": "Runtime resources are present",
+        "extra": {}
+      },
+      "runtime_layout": {
+        "status": "ok",
+        "details": "execution_mode=packaged; runtime_root=C:\\Users\\aleks\\Desktop\\lumen1.1; data_root=C:\\Users\\aleks\\Desktop\\lumen1.1\\tmp_full_validation_packaged_4",
+        "extra": {}
+      },
+      "dormant_tool_signals": {
+        "status": "ok",
+        "details": "Dormant future-ready tool signal catalogs: ",
+        "extra": {}
+      },
+      "example_dataset": {
+        "status": "error",
+        "details": "Expected example dataset at C:\\Users\\aleks\\Desktop\\lumen1.1\\tmp_full_validation_packaged_4\\examples\\cf4_ga_cone_template.csv",
+        "extra": {}
+      },
+      "python_runtime": {
+        "status": "ok",
+        "details": "Current interpreter: C:\\Users\\aleks\\Desktop\\lumen1.1\\.venv\\Scripts\\python.exe",
+        "extra": {}
+      },
+      "config": {
+        "status": "ok",
+        "details": "Using config file at C:\\Users\\aleks\\Desktop\\lumen1.1\\lumen.toml",
+        "extra": {}
+      },
+      "model_provider": {
+        "status": "ok",
+        "details": "Deployment mode=hybrid; provider=openai_responses",
+        "extra": {}
+      },
+      "safety_policy": {
+        "status": "ok",
+        "details": "Prompt and execution safety policy is active",
+        "extra": {}
+      },
+      "dependency:numpy": {
+        "status": "ok",
+        "details": "Python import available for 'numpy'",
+        "extra": {}
+      },
+      "dependency:pandas": {
+        "status": "ok",
+        "details": "Python import available for 'pandas'",
+        "extra": {}
+      },
+      "dependency:matplotlib": {
+        "status": "ok",
+        "details": "Python import available for 'matplotlib'",
+        "extra": {}
+      },
+      "dependency_optional:reportlab": {
+        "status": "ok",
+        "details": "Optional Python import available for 'reportlab'",
+        "extra": {}
+      },
+      "interaction_patterns": {
+        "status": "ok",
+        "details": "8 follow-up prompts, 2 ambiguous follow-ups, 40% rewritten overall",
+        "extra": {}
+      },
+      "confidence_posture": {
+        "status": "ok",
+        "details": "supported=26, tentative=6, unknown=28; recent mix=mixed",
+        "extra": {}
+      },
+      "nlu_signals": {
+        "status": "ok",
+        "details": "languages[en=60]; intents[planning=8, research=50, unknown=2]; recent topics=solve equation, solve equation, entropy",
+        "extra": {}
+      },
+      "route_semantic_signals": {
+        "status": "ok",
+        "details": "44/60 recent interactions used semantic route reinforcement",
+        "extra": {}
+      },
+      "route_normalized_scores": {
+        "status": "ok",
+        "details": "44 scored routes; avg=2.3175; max=2.565",
+        "extra": {}
+      },
+      "route_session_intent": {
+        "status": "ok",
+        "details": "0/60 recent interactions reinforced ambiguous routes from session intent; 0/60 softened them",
+        "extra": {}
+      },
+      "route_retrieval_caution": {
+        "status": "ok",
+        "details": "0/60 recent interactions softened route confidence due to retrieval bias",
+        "extra": {}
+      },
+      "retrieval_ranking": {
+        "status": "warn",
+        "details": "blended=15, semantic=5",
+        "extra": {}
+      },
+      "tool_route_origins": {
+        "status": "warn",
+        "details": "hybrid_signal=4, nlu_hint_alias=8, none=48",
+        "extra": {}
+      },
+      "route_clarifications": {
+        "status": "ok",
+        "details": "6/60 recent interactions required clarification; recent mix=stable:clear",
+        "extra": {}
+      },
+      "memory_behavior": {
+        "status": "ok",
+        "details": "research_notes=10; research_artifacts=0; personal_saves=0; consent_required=0; surface_blocked=0",
+        "extra": {}
+      },
+      "archive_index": {
+        "status": "ok",
+        "details": "12/12 archive records indexed",
+        "extra": {}
+      },
+      "interaction_index": {
+        "status": "ok",
+        "details": "60/60 interaction records indexed",
+        "extra": {}
+      }
+    }
+  },
+  "checks": [
+    {
+      "phase": "packaged",
+      "check_id": "packaged_greeting_modes",
+      "title": "Greeting / first contact across modes",
+      "passed": true,
+      "severity": "info",
+      "details": "Modes should feel distinct without changing core intent.",
+      "evidence": {
+        "collab": {
+          "mode": "conversation",
+          "kind": "conversation.greeting",
+          "summary": "Hey there. What are we picking up today?",
+          "reply": "Hey there. What are we picking up today?",
+          "user_facing_answer": "Hey there. What are we picking up today?",
+          "follow_up_offer": null,
+          "resolved_prompt": null,
+          "resolution_strategy": null,
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        },
+        "default": {
+          "mode": "conversation",
+          "kind": "conversation.greeting",
+          "summary": "Hey. What are we looking at first?",
+          "reply": "Hey. What are we looking at first?",
+          "user_facing_answer": "Hey. What are we looking at first?",
+          "follow_up_offer": null,
+          "resolved_prompt": null,
+          "resolution_strategy": null,
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        },
+        "direct": {
+          "mode": "conversation",
+          "kind": "conversation.greeting",
+          "summary": "Locked in.",
+          "reply": "Locked in.",
+          "user_facing_answer": "Locked in.",
+          "follow_up_offer": null,
+          "resolved_prompt": null,
+          "resolution_strategy": null,
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        }
+      }
+    },
+    {
+      "phase": "packaged",
+      "check_id": "packaged_known_topics",
+      "title": "Known-topic direct answers",
+      "passed": true,
+      "severity": "info",
+      "details": "Known topics should answer directly without unnecessary clarification.",
+      "evidence": {
+        "what is entropy?": {
+          "mode": "research",
+          "kind": "research.summary",
+          "summary": "Sure. Entropy is a measure of how dispersed or spread out energy is in a system. Higher entropy means energy is more spread out and less available to do useful work, and in isolated systems entropy tends to increase over time. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "reply": "Sure. Entropy is a measure of how dispersed or spread out energy is in a system. Higher entropy means energy is more spread out and less available to do useful work, and in isolated systems entropy tends to increase over time. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "user_facing_answer": "Sure. Entropy is a measure of how dispersed or spread out energy is in a system. Higher entropy means energy is more spread out and less available to do useful work, and in isolated systems entropy tends to increase over time. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "follow_up_offer": "If you want, we can explore the next layer together.",
+          "resolved_prompt": null,
+          "resolution_strategy": null,
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        },
+        "what is the Great Attractor?": {
+          "mode": "research",
+          "kind": "research.summary",
+          "summary": "Sure. The Great Attractor is an apparent concentration of mass that pulls on galaxies across a large part of the local universe, including the Milky Way's broader neighborhood. Astronomers infer it from galaxy motions rather than seeing one simple object by itself, because much of the region lies behind the plane of the Milky Way. It is not a single ordinary galaxy but a large-scale mass concentration. It's closely connected to Hydra-Centaurus Supercluster. If you want, we can go one layer deeper on it.",
+          "reply": "Sure. The Great Attractor is an apparent concentration of mass that pulls on galaxies across a large part of the local universe, including the Milky Way's broader neighborhood. Astronomers infer it from galaxy motions rather than seeing one simple object by itself, because much of the region lies behind the plane of the Milky Way. It is not a single ordinary galaxy but a large-scale mass concentration. It's closely connected to Hydra-Centaurus Supercluster. If you want, we can go one layer deeper on it.",
+          "user_facing_answer": "Sure. The Great Attractor is an apparent concentration of mass that pulls on galaxies across a large part of the local universe, including the Milky Way's broader neighborhood. Astronomers infer it from galaxy motions rather than seeing one simple object by itself, because much of the region lies behind the plane of the Milky Way. It is not a single ordinary galaxy but a large-scale mass concentration. It's closely connected to Hydra-Centaurus Supercluster. If you want, we can go one layer deeper on it.",
+          "follow_up_offer": "If you want, we can explore the next layer together.",
+          "resolved_prompt": null,
+          "resolution_strategy": null,
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        },
+        "who was George Washington?": {
+          "mode": "research",
+          "kind": "research.summary",
+          "summary": "Sure. George Washington led the Continental Army during the American Revolution and later became the first President of the United States. He helped establish many early norms of the presidency, including the peaceful transfer of power. Washington led the Continental Army. If you want, we can go one layer deeper on it.",
+          "reply": "Sure. George Washington led the Continental Army during the American Revolution and later became the first President of the United States. He helped establish many early norms of the presidency, including the peaceful transfer of power. Washington led the Continental Army. If you want, we can go one layer deeper on it.",
+          "user_facing_answer": "Sure. George Washington led the Continental Army during the American Revolution and later became the first President of the United States. He helped establish many early norms of the presidency, including the peaceful transfer of power. Washington led the Continental Army. If you want, we can go one layer deeper on it.",
+          "follow_up_offer": "If you want, we can explore the next layer together.",
+          "resolved_prompt": null,
+          "resolution_strategy": null,
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        }
+      }
+    },
+    {
+      "phase": "packaged",
+      "check_id": "packaged_followup_continuity",
+      "title": "Follow-up continuity, continuation, and pivot handling",
+      "passed": true,
+      "severity": "info",
+      "details": "Follow-ups should stay anchored to the current reasoning state rather than resetting.",
+      "evidence": {
+        "first": {
+          "mode": "research",
+          "kind": "research.summary",
+          "summary": "Sure. Entropy is a measure of how dispersed or spread out energy is in a system. Higher entropy means energy is more spread out and less available to do useful work, and in isolated systems entropy tends to increase over time. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "reply": "Sure. Entropy is a measure of how dispersed or spread out energy is in a system. Higher entropy means energy is more spread out and less available to do useful work, and in isolated systems entropy tends to increase over time. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "user_facing_answer": "Sure. Entropy is a measure of how dispersed or spread out energy is in a system. Higher entropy means energy is more spread out and less available to do useful work, and in isolated systems entropy tends to increase over time. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "follow_up_offer": "If you want, we can explore the next layer together.",
+          "resolved_prompt": null,
+          "resolution_strategy": null,
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        },
+        "simple": {
+          "mode": "research",
+          "kind": "research.summary",
+          "summary": "Sure. Entropy measures how dispersed energy is in a system, with higher entropy meaning energy is more spread out and less available to do useful work. A simple way to picture it is energy spreading out, like heat moving through a room until it is harder to use in one concentrated place. For example, when heat spreads through a room, the energy becomes more spread out and less concentrated in one useful place. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "reply": "Sure. Entropy measures how dispersed energy is in a system, with higher entropy meaning energy is more spread out and less available to do useful work. A simple way to picture it is energy spreading out, like heat moving through a room until it is harder to use in one concentrated place. For example, when heat spreads through a room, the energy becomes more spread out and less concentrated in one useful place. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "user_facing_answer": "Sure. Entropy measures how dispersed energy is in a system, with higher entropy meaning energy is more spread out and less available to do useful work. A simple way to picture it is energy spreading out, like heat moving through a room until it is harder to use in one concentrated place. For example, when heat spreads through a room, the energy becomes more spread out and less concentrated in one useful place. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "follow_up_offer": "If you want, we can explore the next layer together.",
+          "resolved_prompt": null,
+          "resolution_strategy": null,
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        },
+        "deep": {
+          "mode": "research",
+          "kind": "research.summary",
+          "summary": "Sure. Entropy is a measure of how dispersed or spread out energy is in a system. Higher entropy means energy is more spread out and less available to do useful work, and in isolated systems entropy tends to increase over time. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "reply": "Sure. Entropy is a measure of how dispersed or spread out energy is in a system. Higher entropy means energy is more spread out and less available to do useful work, and in isolated systems entropy tends to increase over time. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "user_facing_answer": "Sure. Entropy is a measure of how dispersed or spread out energy is in a system. Higher entropy means energy is more spread out and less available to do useful work, and in isolated systems entropy tends to increase over time. It's also useful to connect it to Thermodynamics. If you want, we can go one layer deeper on it.",
+          "follow_up_offer": "If you want, we can explore the next layer together.",
+          "resolved_prompt": null,
+          "resolution_strategy": null,
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        },
+        "compare": {
+          "mode": "research",
+          "kind": "research.comparison",
+          "summary": "Sure. Entropy and Black Hole are related, but they are not the same thing. Entropy: Entropy measures how dispersed energy is in a system, with higher entropy meaning energy is more spread out and less available to do useful work. Black Hole: A black hole is a region of space where gravity is so strong that not even light can escape. In relation to black holes, entropy is used to talk about how many physical states are consistent with the black hole as a thermodynamic object, rather than just treating the black hole as gravity alone. If you want, we can go one layer deeper on it.",
+          "reply": "Sure. Entropy and Black Hole are related, but they are not the same thing. Entropy: Entropy measures how dispersed energy is in a system, with higher entropy meaning energy is more spread out and less available to do useful work. Black Hole: A black hole is a region of space where gravity is so strong that not even light can escape. In relation to black holes, entropy is used to talk about how many physical states are consistent with the black hole as a thermodynamic object, rather than just treating the black hole as gravity alone. If you want, we can go one layer deeper on it.",
+          "user_facing_answer": "Sure. Entropy and Black Hole are related, but they are not the same thing. Entropy: Entropy measures how dispersed energy is in a system, with higher entropy meaning energy is more spread out and less available to do useful work. Black Hole: A black hole is a region of space where gravity is so strong that not even light can escape. In relation to black holes, entropy is used to talk about how many physical states are consistent with the black hole as a thermodynamic object, rather than just treating the black hole as gravity alone. If you want, we can go one layer deeper on it.",
+          "follow_up_offer": "If you want, we can explore the next layer together.",
+          "resolved_prompt": "compare entropy and black holes",
+          "resolution_strategy": "compare_shorthand",
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        },
+        "pivot": {
+          "mode": "research",
+          "kind": "research.summary",
+          "summary": "Sure. A black hole is a collapsed region of spacetime where gravity becomes so strong that the escape speed exceeds the speed of light. They often form after very massive stars collapse, and astronomers study them through their effects on nearby matter, light, and orbital motion. A black hole has no solid surface in the ordinary sense. It's also useful to connect it to Neutron Star. If you want, we can go one layer deeper on it.",
+          "reply": "Sure. A black hole is a collapsed region of spacetime where gravity becomes so strong that the escape speed exceeds the speed of light. They often form after very massive stars collapse, and astronomers study them through their effects on nearby matter, light, and orbital motion. A black hole has no solid surface in the ordinary sense. It's also useful to connect it to Neutron Star. If you want, we can go one layer deeper on it.",
+          "user_facing_answer": "Sure. A black hole is a collapsed region of spacetime where gravity becomes so strong that the escape speed exceeds the speed of light. They often form after very massive stars collapse, and astronomers study them through their effects on nearby matter, light, and orbital motion. A black hole has no solid surface in the ordinary sense. It's also useful to connect it to Neutron Star. If you want, we can go one layer deeper on it.",
+          "follow_up_offer": "If you want, we can explore the next layer together.",
+          "resolved_prompt": null,
+          "resolution_strategy": null,
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        },
+        "reference": {
+          "mode": "planning",
+          "kind": "planning.migration",
+          "summary": "Here\u2019s a starting plan using the best current assumptions.",
+          "reply": "Here\u2019s a starting plan using the best current assumptions.\n- Define the current state, target state, and non-negotiable migration constraints.\n- Use the first milestone to validate this local anchor before broadening scope: what about the migration plan for lumen (from 'what about that').\n- Identify the smallest safe migration slice that delivers value without breaking active flows.\n- Sequence rollout, validation, and fallback checkpoints before broadening the migration.\nNext: Define the smallest safe migration slice and its validation checkpoint. Validate it against the closest local evidence first. Keep the active thread goal visible while sequencing the work.",
+          "user_facing_answer": null,
+          "follow_up_offer": "If you want, we can explore the next layer together.",
+          "resolved_prompt": "what about the migration plan for lumen",
+          "resolution_strategy": "reference_follow_up",
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        }
+      }
+    },
+    {
+      "phase": "packaged",
+      "check_id": "packaged_clarification_surface",
+      "title": "Meaningful clarification behavior",
+      "passed": true,
+      "severity": "info",
+      "details": "Clarification should still appear when useful and remain mode-specific and human-readable.",
+      "evidence": {
+        "collab": {
+          "mode": "clarification",
+          "kind": "clarification.request",
+          "summary": "Clarification requested for: what route makes sense here",
+          "reply": null,
+          "user_facing_answer": null,
+          "follow_up_offer": null,
+          "resolved_prompt": "what route makes sense here",
+          "resolution_strategy": "route_choice_prompt",
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": "I\u2019m noticing we\u2019ve got a couple directions we could go here. Do you want to explore this together, or focus on something specific?",
+          "options": [
+            "Summary",
+            "Comparison",
+            "Continue"
+          ]
+        },
+        "default": {
+          "mode": "clarification",
+          "kind": "clarification.request",
+          "summary": "Clarification requested for: what route makes sense here",
+          "reply": null,
+          "user_facing_answer": null,
+          "follow_up_offer": null,
+          "resolved_prompt": "what route makes sense here",
+          "resolution_strategy": "route_choice_prompt",
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": "This could go a couple ways. Do you want a quick explanation, a comparison, or to continue the current route?",
+          "options": [
+            "Summary",
+            "Comparison",
+            "Continue"
+          ]
+        },
+        "direct": {
+          "mode": "clarification",
+          "kind": "clarification.request",
+          "summary": "Clarification requested for: what route makes sense here",
+          "reply": null,
+          "user_facing_answer": null,
+          "follow_up_offer": null,
+          "resolved_prompt": "what route makes sense here",
+          "resolution_strategy": "route_choice_prompt",
+          "tool_execution": null,
+          "tool_execution_skipped": null,
+          "clarification_question": "Ambiguity detected. Choose: summary | comparison | continue.",
+          "options": [
+            "Summary",
+            "Comparison",
+            "Continue"
+          ]
+        }
+      }
+    },
+    {
+      "phase": "packaged",
+      "check_id": "packaged_math_smoke",
+      "title": "Math tool smoke",
+      "passed": true,
+      "severity": "info",
+      "details": "Packaged/runtime smoke should still reach the math tool correctly.",
+      "evidence": {
+        "response": {
+          "mode": "tool",
+          "kind": "tool.command_alias",
+          "summary": "Solved equation for x: x = 4\nMove all terms to one side: 2 * x - 8 = 0.\nCollect terms in x: (2) * x + (-8) = 0.\nSolve for x: x = 4.",
+          "reply": "Solved equation for x: x = 4\nMove all terms to one side: 2 * x - 8 = 0.\nCollect terms in x: (2) * x + (-8) = 0.\nSolve for x: x = 4.",
+          "user_facing_answer": "Solved equation for x: x = 4\nMove all terms to one side: 2 * x - 8 = 0.\nCollect terms in x: (2) * x + (-8) = 0.\nSolve for x: x = 4.",
+          "follow_up_offer": null,
+          "resolved_prompt": "solve equation",
+          "resolution_strategy": "tool_signal_alias",
+          "tool_execution": {
+            "tool_id": "math",
+            "capability": "solve_equation",
+            "input_path": null,
+            "params": {
+              "equation": "2x + 5 = 13",
+              "variable": "x"
+            }
+          },
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        }
+      }
+    },
+    {
+      "phase": "packaged",
+      "check_id": "packaged_failure_smoke",
+      "title": "Failure honesty smoke",
+      "passed": true,
+      "severity": "info",
+      "details": "Failure output should stay honest and mode-consistent.",
+      "evidence": {
+        "response": {
+          "mode": "tool",
+          "kind": "tool.command_alias",
+          "summary": "Content idea generation is unavailable until a hosted content provider is configured.",
+          "reply": "I ran into a runtime issue here. Content idea generation is unavailable until a hosted content provider is configured.",
+          "user_facing_answer": "I ran into a runtime issue here. Content idea generation is unavailable until a hosted content provider is configured.",
+          "follow_up_offer": null,
+          "resolved_prompt": "generate content ideas",
+          "resolution_strategy": "tool_hint_alias",
+          "tool_execution": {
+            "tool_id": "content",
+            "capability": "generate_ideas",
+            "input_path": null,
+            "params": {
+              "topic": "black holes",
+              "platform": "all",
+              "count": 5
+            }
+          },
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        }
+      }
+    },
+    {
+      "phase": "packaged",
+      "check_id": "packaged_content_status",
+      "title": "Astra/content runtime status",
+      "passed": true,
+      "severity": "info",
+      "details": "Content should be either fully operational or clearly runtime/provider gated.",
+      "evidence": {
+        "response": {
+          "mode": "tool",
+          "kind": "tool.command_alias",
+          "summary": "Content idea generation is unavailable until a hosted content provider is configured.",
+          "reply": "I ran into a runtime issue here. Content idea generation is unavailable until a hosted content provider is configured.",
+          "user_facing_answer": "I ran into a runtime issue here. Content idea generation is unavailable until a hosted content provider is configured.",
+          "follow_up_offer": null,
+          "resolved_prompt": "generate content ideas",
+          "resolution_strategy": "tool_hint_alias",
+          "tool_execution": {
+            "tool_id": "content",
+            "capability": "generate_ideas",
+            "input_path": null,
+            "params": {
+              "topic": "black holes",
+              "platform": "all",
+              "count": 5
+            }
+          },
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        }
+      }
+    },
+    {
+      "phase": "packaged",
+      "check_id": "packaged_anh_runtime",
+      "title": "ANH real runtime execution",
+      "passed": true,
+      "severity": "info",
+      "details": "ANH tool_result.status=ok",
+      "evidence": {
+        "anh_probe_path": "C:\\Users\\aleks\\Desktop\\lumen1.1\\Proof\\HST\\COS\\lb6f07nrq_x1d.fits",
+        "response": {
+          "mode": "tool",
+          "kind": "tool.command_alias",
+          "summary": "ANH analyzed 1 file(s) and found 1 candidate file(s). Strongest candidate: lb6f07nrq_x1d.fits at 43.357443248540456 km/s with depth 1.0.",
+          "reply": "ANH analyzed 1 file(s) and found 1 candidate file(s). Strongest candidate: lb6f07nrq_x1d.fits at 43.357443248540456 km/s with depth 1.0.",
+          "user_facing_answer": "ANH analyzed 1 file(s) and found 1 candidate file(s). Strongest candidate: lb6f07nrq_x1d.fits at 43.357443248540456 km/s with depth 1.0.",
+          "follow_up_offer": null,
+          "resolved_prompt": "run anh",
+          "resolution_strategy": "tool_hint_alias",
+          "tool_execution": {
+            "tool_id": "anh",
+            "capability": "spectral_dip_scan",
+            "input_path": "C:\\Users\\aleks\\Desktop\\lumen1.1\\Proof\\HST\\COS\\lb6f07nrq_x1d.fits",
+            "params": {}
+          },
+          "tool_execution_skipped": null,
+          "clarification_question": null,
+          "options": null
+        }
+      }
+    }
+  ],
+  "stable_ready": [
+    "Greeting / first contact across modes: Modes should feel distinct without changing core intent.",
+    "Known-topic direct answers: Known topics should answer directly without unnecessary clarification.",
+    "Follow-up continuity, continuation, and pivot handling: Follow-ups should stay anchored to the current reasoning state rather than resetting.",
+    "Meaningful clarification behavior: Clarification should still appear when useful and remain mode-specific and human-readable.",
+    "Math tool smoke: Packaged/runtime smoke should still reach the math tool correctly.",
+    "Failure honesty smoke: Failure output should stay honest and mode-consistent.",
+    "Astra/content runtime status: Content should be either fully operational or clearly runtime/provider gated.",
+    "ANH real runtime execution: ANH tool_result.status=ok"
+  ],
+  "refinement_qa": [],
+  "blockers": [],
+  "summary": {
+    "passed_count": 8,
+    "refinement_count": 0,
+    "blocker_count": 0,
+    "coherent_system": true
+  }
+}

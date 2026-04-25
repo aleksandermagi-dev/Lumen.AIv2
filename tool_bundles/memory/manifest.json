@@ -1,0 +1,34 @@
+{
+  "schema_version": "1",
+  "id": "memory",
+  "name": "Memory Tools",
+  "version": "0.1.0",
+  "description": "Local memory and session inspection bundle.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "session.timeline",
+      "adapter": "session_timeline_adapter",
+      "description": "Build a local session timeline from archived tool runs and persisted assistant interactions.",
+      "app_capability_key": "memory.session_timeline",
+      "app_description": "Inspect the combined local session timeline.",
+      "command_aliases": [
+        "inspect session timeline",
+        "summarize session timeline"
+      ],
+      "trigger_keywords": ["timeline", "session timeline", "history timeline", "interaction timeline"],
+      "structural_patterns": ["session_timeline_phrase"],
+      "intent_hints": ["inspect", "summarize"],
+      "routing_priority": 60,
+      "tool_intent_required": true,
+      "safety_level": "allowed",
+      "safety_notes": "Session timeline inspection is read-only and should remain allowed under local execution safety.",
+      "input_schema": {},
+      "output_schema": {
+        "artifacts": [
+          "session_timeline_report.json"
+        ]
+      }
+    }
+  ]
+}

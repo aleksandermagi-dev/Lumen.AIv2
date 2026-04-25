@@ -1,0 +1,23 @@
+[app]
+default_output_format = "json"
+default_session_id = "default"
+# deployment_mode = "local_only"
+# inference_provider = "local"
+# openai_responses_model = "gpt-5.4-mini"
+# openai_api_base = "https://api.openai.com/v1"
+# data_root = "data"
+# archive_root = "data/archive"
+# interactions_root = "data/interactions"
+# sessions_root = "data/sessions"
+# tool_runs_root = "data/tool_runs"
+# examples_root = "data/examples"
+# context_match_limit = 3
+# context_prompt_max_length = 160
+# context_summary_max_length = 160
+# session_objective_max_length = 200
+# session_thread_summary_max_length = 280
+
+# Hosted inference uses environment variables rather than storing secrets here.
+# Example:
+#   OPENAI_API_KEY=YOUR_LUMEN_OPENAI_KEY_HERE
+#   OPENAI_RESPONSES_MODEL=gpt-5.4-mini

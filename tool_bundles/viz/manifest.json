@@ -1,0 +1,98 @@
+{
+  "schema_version": "1",
+  "id": "viz",
+  "name": "Visualization Tools",
+  "version": "0.1.0",
+  "description": "Bounded local visualization helpers for graphs, timelines, and parameter-space plots.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "graph",
+      "adapter": "graph_adapter",
+      "description": "Render a simple graph view from nodes and edges.",
+      "app_capability_key": "viz.graph",
+      "app_description": "Render a simple graph view.",
+      "command_aliases": ["render graph"],
+      "trigger_keywords": ["graph", "nodes", "edges", "relationships"],
+      "structural_patterns": ["network_graph_phrase"],
+      "intent_hints": ["render", "visualize", "graph"],
+      "routing_priority": 87,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Graph rendering should stay bounded to attached or provided structured inputs.",
+      "input_schema": {
+        "nodes": "array|null",
+        "edges": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["graph_view.json", "graph_view.svg", "artifact_manifest.json"]
+      }
+    },
+    {
+      "id": "network",
+      "adapter": "network_adapter",
+      "description": "Render a network diagram from node and edge data.",
+      "app_capability_key": "viz.network",
+      "app_description": "Render a network diagram.",
+      "command_aliases": ["render network"],
+      "trigger_keywords": ["network", "graph", "nodes", "edges"],
+      "structural_patterns": ["network_graph_phrase"],
+      "intent_hints": ["render", "visualize", "network"],
+      "routing_priority": 87,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Network rendering should stay bounded to attached or provided structured inputs.",
+      "input_schema": {
+        "nodes": "array|null",
+        "edges": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["network_view.json", "network_view.svg", "artifact_manifest.json"]
+      }
+    },
+    {
+      "id": "timeline",
+      "adapter": "timeline_adapter",
+      "description": "Render a simple timeline from dated events.",
+      "app_capability_key": "viz.timeline",
+      "app_description": "Render a simple timeline.",
+      "command_aliases": ["render timeline"],
+      "trigger_keywords": ["timeline", "events", "chronology"],
+      "structural_patterns": ["timeline_phrase"],
+      "intent_hints": ["render", "visualize", "timeline"],
+      "routing_priority": 88,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Timeline rendering should stay bounded to attached or provided structured inputs.",
+      "input_schema": {
+        "events": "array|null"
+      },
+      "output_schema": {
+        "artifacts": ["timeline_view.json", "timeline_view.svg", "artifact_manifest.json"]
+      }
+    },
+    {
+      "id": "parameter_space",
+      "adapter": "parameter_space_adapter",
+      "description": "Render a simple parameter-space plot from structured points.",
+      "app_capability_key": "viz.parameter_space",
+      "app_description": "Render a parameter-space plot.",
+      "command_aliases": ["plot parameter space"],
+      "trigger_keywords": ["parameter space", "phase space", "plot", "parameters"],
+      "structural_patterns": ["parameter_space_phrase", "structured_data_file"],
+      "intent_hints": ["plot", "visualize", "map"],
+      "routing_priority": 89,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Parameter-space rendering should stay bounded to attached or provided structured inputs.",
+      "input_schema": {
+        "points": "array|null",
+        "x_column": "string|null",
+        "y_column": "string|null"
+      },
+      "output_schema": {
+        "artifacts": ["parameter_space.json", "parameter_space.svg", "artifact_manifest.json"]
+      }
+    }
+  ]
+}

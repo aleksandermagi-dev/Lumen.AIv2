@@ -1,0 +1,79 @@
+{
+  "schema_version": "1",
+  "id": "system",
+  "name": "System Tools",
+  "version": "0.1.0",
+  "description": "Repo-aware architecture, refactor, and documentation tooling.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "analyze.architecture",
+      "adapter": "architecture_analyze_adapter",
+      "description": "Inspect a repo slice and summarize components, dependencies, and hotspots.",
+      "app_capability_key": "system.analyze_architecture",
+      "app_description": "Analyze architecture in a repo slice.",
+      "command_aliases": ["analyze architecture"],
+      "trigger_keywords": ["architecture", "structure", "codebase", "module", "service", "system"],
+      "structural_patterns": ["file_path_mention", "repo_structure_phrase", "system_analysis_phrase"],
+      "intent_hints": ["analyze", "inspect"],
+      "routing_priority": 84,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "System analysis should not assist dual-use operational planning through tool execution.",
+      "input_schema": {
+        "target_path": "string|null",
+        "focus": "string|null",
+        "depth": "number|null"
+      },
+      "output_schema": {
+        "artifacts": ["architecture_report.json", "architecture_map.txt"]
+      }
+    },
+    {
+      "id": "suggest.refactor",
+      "adapter": "refactor_suggest_adapter",
+      "description": "Generate bounded refactor recommendations for a repo slice.",
+      "app_capability_key": "system.suggest_refactor",
+      "app_description": "Suggest bounded refactors for a target path.",
+      "command_aliases": ["suggest refactor"],
+      "trigger_keywords": ["refactor", "cleanup", "improve", "codebase", "system"],
+      "structural_patterns": ["file_path_mention", "repo_structure_phrase"],
+      "intent_hints": ["suggest", "improve"],
+      "routing_priority": 80,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Refactor suggestions must not become dual-use procedural assistance.",
+      "input_schema": {
+        "target_path": "string",
+        "goal": "string",
+        "constraints": "object|null"
+      },
+      "output_schema": {
+        "artifacts": ["refactor_suggestions.json"]
+      }
+    },
+    {
+      "id": "generate.docs",
+      "adapter": "docs_generate_adapter",
+      "description": "Generate structured local documentation from code shape.",
+      "app_capability_key": "system.generate_docs",
+      "app_description": "Generate local docs from code shape.",
+      "command_aliases": ["generate docs"],
+      "trigger_keywords": ["docs", "document", "overview", "catalog"],
+      "structural_patterns": ["file_path_mention", "docs_generation_phrase", "repo_structure_phrase"],
+      "intent_hints": ["generate", "document"],
+      "routing_priority": 78,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Doc generation should be blocked when the prompt is dual-use and operationally risky.",
+      "input_schema": {
+        "target_path": "string",
+        "doc_type": "string",
+        "include_public_interfaces": "boolean"
+      },
+      "output_schema": {
+        "artifacts": ["generated_docs.json", "generated_docs.md"]
+      }
+    }
+  ]
+}

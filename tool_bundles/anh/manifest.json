@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "id": "anh",
+  "name": "Astronomical Node Heuristics",
+  "version": "1.0.0",
+  "description": "ANH spectral dip scanning with intake recognition for raw spectra, raw MAST-style archives, processed result summaries, and explicit batch manifests.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "spectral_dip_scan",
+      "adapter": "anh_spectral_scan_adapter",
+      "description": "Recognize ANH-compatible inputs, stage raw archive/batch data, then scan raw spectra or summarize already-derived ANH result files.",
+      "app_capability_key": "astronomy.anh_spectral_scan",
+      "app_description": "ANH spectral dip analysis for quasar spectroscopy inputs.",
+      "command_aliases": [
+        "run anh",
+        "scan si iv dips",
+        "find spectral dips"
+      ],
+      "trigger_keywords": [
+        "run anh",
+        "anh",
+        "scan spectrum",
+        "scan spectra",
+        "quasar",
+        "fits",
+        "x1d",
+        "mast",
+        "archive",
+        "zip",
+        "si iv",
+        "absorption",
+        "dip",
+        "gas-line candidate",
+        "candidate dip files"
+      ],
+      "structural_patterns": [
+        "spectral_file_phrase",
+        "absorption_candidate_phrase",
+        "file_path_mention"
+      ],
+      "intent_hints": [
+        "run",
+        "analyze",
+        "scan",
+        "check",
+        "find",
+        "rank"
+      ],
+      "routing_priority": 72,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Scientific spectrum analysis only; requires user-provided data input.",
+      "input_schema": {
+        "input_path": "Path[file|directory|manifest|zip]",
+        "target_lines": "list[object]|null",
+        "smooth_window": "int|null",
+        "scan_width": "float|null",
+        "max_files": "int|null",
+        "rank_limit": "int|null"
+      },
+      "output_schema": {
+        "artifacts": [
+          "candidate_rankings.json",
+          "analysis_summary.json",
+          "analysis_summary.txt",
+          "artifact_manifest.json"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "1",
+  "id": "knowledge",
+  "name": "Knowledge Tools",
+  "version": "0.1.0",
+  "description": "Local structural knowledge tools for linking, path finding, clustering, and contradiction detection.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "link",
+      "adapter": "link_adapter",
+      "description": "Identify likely links across concepts or text items.",
+      "app_capability_key": "knowledge.link",
+      "app_description": "Link related concepts or items.",
+      "command_aliases": ["link knowledge"],
+      "trigger_keywords": ["relationship", "connect", "link", "relate", "map"],
+      "structural_patterns": ["multi_concept_relation", "relation_question"],
+      "intent_hints": ["link", "map"],
+      "routing_priority": 72,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Knowledge graph tools should stay unavailable for dual-use operational prompts.",
+      "input_schema": {
+        "items": "array",
+        "relation_hint": "string|null"
+      },
+      "output_schema": {
+        "artifacts": ["knowledge_links.json"]
+      }
+    },
+    {
+      "id": "find_paths",
+      "adapter": "find_paths_adapter",
+      "description": "Find connection chains between two concepts using local knowledge and graph memory.",
+      "app_capability_key": "knowledge.find_paths",
+      "app_description": "Find paths between concepts.",
+      "command_aliases": ["find knowledge"],
+      "trigger_keywords": ["path", "connect", "relationship", "link"],
+      "structural_patterns": ["source_target_path", "multi_concept_relation"],
+      "intent_hints": ["find", "map"],
+      "routing_priority": 82,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Path-finding should not operationalize dual-use or covert misuse requests.",
+      "input_schema": {
+        "source": "string",
+        "target": "string",
+        "max_hops": "number"
+      },
+      "output_schema": {
+        "artifacts": ["knowledge_paths.json"]
+      }
+    },
+    {
+      "id": "cluster",
+      "adapter": "cluster_adapter",
+      "description": "Group related concepts or text items into simple clusters.",
+      "app_capability_key": "knowledge.cluster",
+      "app_description": "Cluster concepts into groups.",
+      "command_aliases": ["cluster knowledge"],
+      "trigger_keywords": ["cluster", "group", "map"],
+      "structural_patterns": ["multi_concept_relation"],
+      "intent_hints": ["cluster", "group"],
+      "routing_priority": 76,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Clustering stays bounded and should not be used for dual-use execution support.",
+      "input_schema": {
+        "items": "array",
+        "strategy": "string"
+      },
+      "output_schema": {
+        "artifacts": ["knowledge_clusters.json"]
+      }
+    },
+    {
+      "id": "contradictions",
+      "adapter": "contradictions_adapter",
+      "description": "Flag likely contradictions or tensions across claims.",
+      "app_capability_key": "knowledge.contradictions",
+      "app_description": "Detect likely contradictions across claims.",
+      "command_aliases": ["check contradictions"],
+      "trigger_keywords": ["contradiction", "inconsistency", "inconsistencies", "claims"],
+      "structural_patterns": ["inconsistency_claims", "multi_concept_relation"],
+      "intent_hints": ["check", "find"],
+      "routing_priority": 84,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Contradiction checks should stay high-level for dual-use prompts.",
+      "input_schema": {
+        "claims": "array",
+        "strictness": "string"
+      },
+      "output_schema": {
+        "artifacts": ["knowledge_contradictions.json"]
+      }
+    }
+  ]
+}

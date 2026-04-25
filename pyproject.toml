@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lumen"
+version = "0.1.0"
+description = "Local-first modular AI research and engineering assistant."
+requires-python = ">=3.10"
+dependencies = [
+  "sentence-transformers>=3.0",
+]
+
+[project.scripts]
+lumen = "lumen.cli.main:main"
+
+[project.gui-scripts]
+lumen-desktop = "lumen.desktop.main:main"
+
+[project.optional-dependencies]
+anh = [
+  "astropy>=6.0",
+  "numpy>=1.26",
+  "matplotlib>=3.8",
+]
+dev = [
+  "pytest>=8.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

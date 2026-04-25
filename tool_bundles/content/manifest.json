@@ -1,0 +1,128 @@
+{
+  "schema_version": "1",
+  "id": "content",
+  "name": "Content Generation Tools",
+  "version": "0.1.0",
+  "description": "Lumen-owned short-form content generation, formatting, and artifact packaging tools extracted from Astra capabilities.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "generate_ideas",
+      "adapter": "generate_ideas_adapter",
+      "description": "Generate ranked short-form content ideas.",
+      "app_capability_key": "content.generate_ideas",
+      "app_description": "Generate content ideas for short-form platforms.",
+      "command_aliases": [
+        "generate content ideas",
+        "brainstorm content ideas"
+      ],
+      "trigger_keywords": [
+        "content ideas",
+        "hooks",
+        "tiktok",
+        "youtube shorts",
+        "short-form"
+      ],
+      "structural_patterns": [
+        "idea_generation_phrase",
+        "platform_target_mention",
+        "short_form_content_phrase"
+      ],
+      "intent_hints": [
+        "brainstorm",
+        "generate",
+        "ideas"
+      ],
+      "routing_priority": 52,
+      "tool_intent_required": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "topic": { "type": ["string", "null"] },
+          "count": { "type": "integer" },
+          "platform": { "type": "string" },
+          "style_profile": { "type": "string" }
+        }
+      }
+    },
+    {
+      "id": "generate_batch",
+      "adapter": "generate_batch_adapter",
+      "description": "Generate a batch of master short-form content drafts and package artifacts.",
+      "app_capability_key": "content.generate_batch",
+      "app_description": "Generate a content batch with script, caption, and artifact packaging.",
+      "command_aliases": [
+        "generate content batch",
+        "create content drafts"
+      ],
+      "trigger_keywords": [
+        "content batch",
+        "drafts",
+        "script",
+        "caption",
+        "hashtags",
+        "tiktok",
+        "youtube shorts"
+      ],
+      "structural_patterns": [
+        "batch_generation_phrase",
+        "platform_target_mention",
+        "short_form_content_phrase"
+      ],
+      "intent_hints": [
+        "generate",
+        "create",
+        "batch"
+      ],
+      "routing_priority": 58,
+      "tool_intent_required": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "topic": { "type": "string" },
+          "count": { "type": "integer" },
+          "style_profile": { "type": "string" }
+        }
+      }
+    },
+    {
+      "id": "format_platform",
+      "adapter": "format_platform_adapter",
+      "description": "Adapt a master draft into a platform-specific variant.",
+      "app_capability_key": "content.format_platform",
+      "app_description": "Format a content draft for TikTok or YouTube Shorts.",
+      "command_aliases": [
+        "format content for platform",
+        "adapt content for platform"
+      ],
+      "trigger_keywords": [
+        "format content",
+        "adapt content",
+        "platform variant",
+        "tiktok",
+        "youtube shorts"
+      ],
+      "structural_patterns": [
+        "platform_target_mention",
+        "short_form_content_phrase"
+      ],
+      "intent_hints": [
+        "format",
+        "adapt",
+        "variant"
+      ],
+      "routing_priority": 48,
+      "tool_intent_required": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "draft": { "type": "object" },
+          "source_text": { "type": "string" },
+          "topic": { "type": "string" },
+          "platform": { "type": "string" },
+          "style_profile": { "type": "string" }
+        }
+      }
+    }
+  ]
+}

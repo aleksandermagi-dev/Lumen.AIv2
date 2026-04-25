@@ -1,0 +1,106 @@
+{
+  "schema_version": "1",
+  "id": "simulate",
+  "name": "Simulation Tools",
+  "version": "0.1.0",
+  "description": "Bounded local simulation tools for systems, orbits, population growth, and diffusion.",
+  "entrypoint": "bundle.py",
+  "capabilities": [
+    {
+      "id": "system",
+      "adapter": "system_adapter",
+      "description": "Run a bounded first-order system simulation.",
+      "app_capability_key": "simulate.system",
+      "app_description": "Simulate a bounded first-order system.",
+      "command_aliases": ["simulate system"],
+      "trigger_keywords": ["simulate", "system", "model"],
+      "structural_patterns": ["time_based_change", "system_with_variables"],
+      "intent_hints": ["simulate", "model"],
+      "routing_priority": 82,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Simulation stays bounded and descriptive rather than becoming arbitrary code execution.",
+      "input_schema": {
+        "initial_value": "number|null",
+        "growth_rate": "number|null",
+        "damping_rate": "number|null",
+        "forcing": "number|null",
+        "steps": "number|null"
+      },
+      "output_schema": {
+        "artifacts": ["system_simulation.json", "system_simulation.svg"]
+      }
+    },
+    {
+      "id": "orbit",
+      "adapter": "orbit_adapter",
+      "description": "Generate a bounded two-body orbital geometry simulation.",
+      "app_capability_key": "simulate.orbit",
+      "app_description": "Simulate a bounded orbit path.",
+      "command_aliases": ["simulate orbit"],
+      "trigger_keywords": ["simulate", "orbit", "orbital"],
+      "structural_patterns": ["orbit_phrase"],
+      "intent_hints": ["simulate", "model"],
+      "routing_priority": 84,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Orbit simulation is descriptive and local only.",
+      "input_schema": {
+        "semi_major_axis": "number|null",
+        "eccentricity": "number|null",
+        "samples": "number|null"
+      },
+      "output_schema": {
+        "artifacts": ["orbit_simulation.json", "orbit_simulation.svg"]
+      }
+    },
+    {
+      "id": "population",
+      "adapter": "population_adapter",
+      "description": "Run a bounded logistic population simulation.",
+      "app_capability_key": "simulate.population",
+      "app_description": "Simulate logistic population growth.",
+      "command_aliases": ["simulate population"],
+      "trigger_keywords": ["simulate", "population", "growth"],
+      "structural_patterns": ["population_growth_phrase", "time_based_change"],
+      "intent_hints": ["simulate", "project"],
+      "routing_priority": 83,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Population simulation stays descriptive and parameter-driven.",
+      "input_schema": {
+        "initial_population": "number|null",
+        "growth_rate": "number|null",
+        "carrying_capacity": "number|null",
+        "steps": "number|null"
+      },
+      "output_schema": {
+        "artifacts": ["population_simulation.json", "population_simulation.svg"]
+      }
+    },
+    {
+      "id": "diffusion",
+      "adapter": "diffusion_adapter",
+      "description": "Run a bounded one-dimensional diffusion simulation.",
+      "app_capability_key": "simulate.diffusion",
+      "app_description": "Simulate discrete diffusion over time.",
+      "command_aliases": ["simulate diffusion"],
+      "trigger_keywords": ["simulate", "diffusion", "spread"],
+      "structural_patterns": ["diffusion_phrase", "time_based_change"],
+      "intent_hints": ["simulate", "model"],
+      "routing_priority": 83,
+      "tool_intent_required": true,
+      "safety_level": "constrained",
+      "safety_notes": "Diffusion simulation stays bounded and local.",
+      "input_schema": {
+        "cells": "number|null",
+        "steps": "number|null",
+        "diffusion_rate": "number|null",
+        "peak_value": "number|null"
+      },
+      "output_schema": {
+        "artifacts": ["diffusion_simulation.json", "diffusion_simulation.svg"]
+      }
+    }
+  ]
+}
