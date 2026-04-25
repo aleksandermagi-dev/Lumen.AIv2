@@ -238,6 +238,40 @@ Run the packaged Windows app:
 dist/lumen.exe
 ```
 
+## Build The Windows Executable
+
+Lumen uses PyInstaller and the checked-in `main.spec` file to build the desktop executable.
+
+From a fresh checkout:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install -e .[dev]
+.\.venv\Scripts\python.exe -m PyInstaller main.spec
+```
+
+The rebuilt executable is written to:
+
+```text
+dist/lumen.exe
+```
+
+Before distributing a rebuilt executable, run at least a focused validation pass:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests\unit\test_interaction_service.py tests\unit\test_chat_ui_support.py tests\unit\test_persistence_manager.py -q
+.\.venv\Scripts\python.exe -m lumen.validation.system_sweep --mode fast --force-fresh-packaged --packaged-executable dist\lumen.exe
+```
+
+For a final release-candidate gate, run the full sweep and include the selected ANH MAST probe when available:
+
+```powershell
+.\.venv\Scripts\python.exe -m lumen.validation.system_sweep --mode full --force-fresh-packaged --packaged-executable dist\lumen.exe --anh-probe "MAST file\MAST_2025-08-20T21_51_26.049Z.zip"
+```
+
+The `dist/`, `build/`, local `data/`, debug logs, and MAST files are intentionally ignored by Git. They are local build/runtime artifacts, not source files.
+
 Initialize a workspace:
 
 ```bash
