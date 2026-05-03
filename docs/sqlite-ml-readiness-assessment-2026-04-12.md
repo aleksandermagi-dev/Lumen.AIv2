@@ -1,5 +1,7 @@
 # SQLite ML-Readiness Assessment
 
+> Historical note: this document records an earlier implementation/audit phase and is not the current runtime authority. For current status, see [README.md](../README.md), [LUMEN_V2_RELEASE_STATUS.md](../LUMEN_V2_RELEASE_STATUS.md), and [LUMEN_V2_ARCHITECTURE.md](../LUMEN_V2_ARCHITECTURE.md).
+
 Date: 2026-04-12
 
 Status update:
@@ -12,7 +14,7 @@ Status update:
 - The assessment below remains useful as the grounding snapshot, but the “partially ready” gap identified here has now been closed by the new dataset-layer migration and ingestion service.
 
 Database inspected:
-- `C:\Users\aleks\Desktop\lumen1.1\data\persistence\lumen.sqlite3`
+- `data/persistence/lumen.sqlite3`
 
 Live row counts inspected:
 - `sessions`: 183
@@ -24,7 +26,7 @@ Live row counts inspected:
 - `trainability_traces`: 1618
 
 Important current-state note:
-- Lumen already has a dataset export path in code via [dataset_exporter.py](/C:/Users/aleks/Desktop/lumen1.1/src/lumen/labeling/dataset_exporter.py).
+- Lumen already has a dataset export path in code via [dataset_exporter.py](../src/lumen/labeling/dataset_exporter.py).
 - There is currently no live exported labeled dataset directory at `data/labeled_datasets`.
 - Lumen is already capable of deriving labeled examples, and after Phase 25 it also has a first-class SQLite dataset-ingestion layer for imported and curated supervised examples.
 

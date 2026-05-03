@@ -8,7 +8,7 @@ Lumen is not presented as a frontier model trained from scratch. Its strength co
 
 ## Current Status
 
-This repository is the Lumen v2 release-candidate line. As of the latest validation pass, v2 is functionally complete pending only final release-gate QA with the selected ANH MAST input.
+This repository is the Lumen v2 source release line. The source is published on GitHub at [aleksandermagi-dev/Lumen.AIv2](https://github.com/aleksandermagi-dev/Lumen.AIv2), tagged as `v2.0.0`, and marked functionally complete from the latest local validation pass.
 
 The latest packaged target is:
 
@@ -237,6 +237,8 @@ Run the packaged Windows app:
 ```text
 dist/lumen.exe
 ```
+
+The executable is built locally and intentionally not committed to the repository. A public binary release asset is deferred until final binary/data hygiene is checked.
 
 ## Build The Windows Executable
 

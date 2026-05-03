@@ -1,5 +1,7 @@
 # Phase 27: Supervised Dataset Curation, Export, and Evaluation Loop
 
+> Historical note: this document records an earlier implementation/audit phase and is not the current runtime authority. For current status, see [README.md](../README.md), [LUMEN_V2_RELEASE_STATUS.md](../LUMEN_V2_RELEASE_STATUS.md), and [LUMEN_V2_ARCHITECTURE.md](../LUMEN_V2_ARCHITECTURE.md).
+
 Status: implemented
 
 ## What was added

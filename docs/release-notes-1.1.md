@@ -1,5 +1,7 @@
 # Lumen 1.1 Overview
 
+> Historical note: this document records an earlier implementation/audit phase and is not the current runtime authority. For current status, see [README.md](../README.md), [LUMEN_V2_RELEASE_STATUS.md](../LUMEN_V2_RELEASE_STATUS.md), and [LUMEN_V2_ARCHITECTURE.md](../LUMEN_V2_ARCHITECTURE.md).
+
 This note keeps the longer `1.0 -> 1.1` summary out of the main README while making the current state of the repo easy to audit.
 
 ## From 1.0 to 1.1

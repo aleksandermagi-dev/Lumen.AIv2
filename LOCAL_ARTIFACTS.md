@@ -1,6 +1,6 @@
 # Local Artifacts
 
-This workspace keeps several local-only folders for QA, packaged runtime checks, screenshots, and science inputs. They are intentionally ignored by Git and should not be required for a clean source checkout.
+This workspace keeps several local-only folders for QA, packaged runtime checks, screenshots, science inputs, and rebuilt executables. They are intentionally ignored by Git and should not be required for a clean source checkout.
 
 ## Kept Locally
 
@@ -33,3 +33,5 @@ The source tree needed to build and review Lumen is:
 - `lumen.ico`
 
 Do not delete local artifact folders just to make the root look cleaner. The `.gitignore` keeps GitHub clean while preserving local QA history.
+
+The GitHub source release intentionally excludes local runtime data and binary artifacts. Build `dist/lumen.exe` locally from `main.spec`, then attach it to a GitHub Release only after binary/data hygiene has been checked.

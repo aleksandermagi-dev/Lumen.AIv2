@@ -2,7 +2,7 @@
 
 This document is not the current runtime authority.
 
-For implementation-truth boundaries, use [runtime_architecture_authority.md](C:\Users\aleks\Desktop\lumen1.1\docs\runtime_architecture_authority.md).
+For implementation-truth boundaries, use [runtime_architecture_authority.md](runtime_architecture_authority.md).
 
 This note captures authority policy and deferred cleanup work beyond the current runtime architecture.
 

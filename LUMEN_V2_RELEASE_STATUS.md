@@ -1,8 +1,23 @@
 # Lumen v2 Release Status
 
-Status: release-candidate complete.
+Status: Lumen v2 source release complete.
 
-Lumen v2 is marked functionally complete as of the latest Phase 94 validation pass. The current packaged target is built locally at `dist/lumen.exe`.
+Lumen v2 is marked functionally complete as of the latest Phase 94 validation pass. The source release is published on GitHub and tagged as `v2.0.0`.
+
+## GitHub Release State
+
+- Repository: [aleksandermagi-dev/Lumen.AIv2](https://github.com/aleksandermagi-dev/Lumen.AIv2)
+- Current tag: `v2.0.0`
+- Tagged source commit: `1c89644`
+- Latest pushed commit: see the GitHub repository history; documentation-only updates may be newer than the `v2.0.0` tag.
+- Source branches: `main` and `master` are aligned.
+- Binary asset: deferred intentionally. A fresh `dist/lumen.exe` can be built locally, but the exe is not uploaded or committed until binary/data hygiene is checked.
+
+The current packaged target builds locally at:
+
+```text
+dist/lumen.exe
+```
 
 ## Latest Validation Snapshot
 
@@ -45,12 +60,12 @@ The workspace intentionally keeps local artifacts on disk for QA and release wor
 
 These are ignored by Git so the GitHub source tree stays clean, but they are not deleted or moved because they are still useful locally.
 
-## Remaining Release Gate
+## Remaining Binary Release Gate
 
-Before publishing a final binary, run the final full gate with the current MAST file:
+Before publishing a final binary asset, run the final full gate with the current MAST file:
 
 ```powershell
 .\.venv\Scripts\python.exe -m lumen.validation.system_sweep --mode full --force-fresh-packaged --packaged-executable dist\lumen.exe --anh-probe "MAST file\MAST_2025-08-20T21_51_26.049Z.zip"
 ```
 
-If that gate reports source `pass`, packaged `pass`, parity `aligned`, and blockers `0`, Lumen v2 is ready for release packaging.
+If that gate reports source `pass`, packaged `pass`, parity `aligned`, and blockers `0`, Lumen v2 is ready for binary release packaging.

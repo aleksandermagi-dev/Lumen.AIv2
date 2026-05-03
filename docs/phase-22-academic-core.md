@@ -1,5 +1,7 @@
 # Phase 22: Academic Core and Supervised-Data Readiness
 
+> Historical note: this document records an earlier implementation/audit phase and is not the current runtime authority. For current status, see [README.md](../README.md), [LUMEN_V2_RELEASE_STATUS.md](../LUMEN_V2_RELEASE_STATUS.md), and [LUMEN_V2_ARCHITECTURE.md](../LUMEN_V2_ARCHITECTURE.md).
+
 ## Summary
 Phase 22 extends Lumen's adjacent academic capabilities without widening into unsupported authority claims.
 

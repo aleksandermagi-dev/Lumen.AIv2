@@ -2,7 +2,7 @@
 
 This document is the current high-level architecture map for Lumen v2.
 
-For strict implementation authority, use [docs/runtime_architecture_authority.md](C:\Users\aleks\Desktop\lumen1.1\docs\runtime_architecture_authority.md). This file explains how the major pieces fit together; the authority document defines which layer is allowed to make runtime decisions.
+For strict implementation authority, use [docs/runtime_architecture_authority.md](docs/runtime_architecture_authority.md). This file explains how the major pieces fit together; the authority document defines which layer is allowed to make runtime decisions.
 
 ## Current Architecture Summary
 
@@ -229,7 +229,7 @@ These are intentionally treated as future work or release-QA extensions, not hid
 
 ## Relationship To Other Docs
 
-- [README.md](C:\Users\aleks\Desktop\lumen1.1\README.md): app-reviewer-facing overview.
-- [docs/runtime_architecture_authority.md](C:\Users\aleks\Desktop\lumen1.1\docs\runtime_architecture_authority.md): strict runtime authority and ownership rules.
-- [docs/lumen_v2_authority_model.md](C:\Users\aleks\Desktop\lumen1.1\docs\lumen_v2_authority_model.md): authority-policy notes and deferred cleanup context.
-- [docs/desktop_packaging.md](C:\Users\aleks\Desktop\lumen1.1\docs\desktop_packaging.md): packaged runtime path model and desktop packaging notes.
+- [README.md](README.md): app-reviewer-facing overview.
+- [docs/runtime_architecture_authority.md](docs/runtime_architecture_authority.md): strict runtime authority and ownership rules.
+- [docs/lumen_v2_authority_model.md](docs/lumen_v2_authority_model.md): authority-policy notes and deferred cleanup context.
+- [docs/desktop_packaging.md](docs/desktop_packaging.md): packaged runtime path model and desktop packaging notes.

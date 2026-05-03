@@ -1,5 +1,7 @@
 # Phase 20: Human/Thinking Layer Audit
 
+> Historical note: this document records an earlier implementation/audit phase and is not the current runtime authority. For current status, see [README.md](../README.md), [LUMEN_V2_RELEASE_STATUS.md](../LUMEN_V2_RELEASE_STATUS.md), and [LUMEN_V2_ARCHITECTURE.md](../LUMEN_V2_ARCHITECTURE.md).
+
 ## Summary
 Phase 20 is a findings-first audit of Lumen's human-language, thinking, and conversational-understanding stack.
 

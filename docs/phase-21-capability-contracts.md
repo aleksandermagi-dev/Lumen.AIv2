@@ -1,5 +1,7 @@
 # Phase 21: Safe Capability Expansion and No-Self-Edit Lock
 
+> Historical note: this document records an earlier implementation/audit phase and is not the current runtime authority. For current status, see [README.md](../README.md), [LUMEN_V2_RELEASE_STATUS.md](../LUMEN_V2_RELEASE_STATUS.md), and [LUMEN_V2_ARCHITECTURE.md](../LUMEN_V2_ARCHITECTURE.md).
+
 ## Summary
 Phase 21 tightens Lumen's capability honesty and only expands adjacent workflows that the current runtime can actually support.
 

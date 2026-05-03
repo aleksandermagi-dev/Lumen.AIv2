@@ -16,7 +16,7 @@ Use this file as the implementation authority when code and architecture notes d
 
 ## Canonical prompt-understanding contract
 
-The canonical contract is built in [src/lumen/nlu/prompt_nlu.py](C:\Users\aleks\Desktop\lumen1.1\src\lumen\nlu\prompt_nlu.py) and modeled in [src/lumen/nlu/models.py](C:\Users\aleks\Desktop\lumen1.1\src\lumen\nlu\models.py).
+The canonical contract is built in [src/lumen/nlu/prompt_nlu.py](../src/lumen/nlu/prompt_nlu.py) and modeled in [src/lumen/nlu/models.py](../src/lumen/nlu/models.py).
 
 It includes:
 
@@ -37,7 +37,7 @@ Downstream layers should consume this contract or a read-only projection of it i
 
 ### Routing
 
-- Owner: [src/lumen/routing/domain_router.py](C:\Users\aleks\Desktop\lumen1.1\src\lumen\routing\domain_router.py)
+- Owner: [src/lumen/routing/domain_router.py](../src/lumen/routing/domain_router.py)
 - Input: canonical prompt-understanding or router view
 - Output: route authority decision
 - Not allowed:
@@ -47,7 +47,7 @@ Downstream layers should consume this contract or a read-only projection of it i
 
 ### Retrieval
 
-- Owner: [src/lumen/reasoning/memory_retrieval_layer.py](C:\Users\aleks\Desktop\lumen1.1\src\lumen\reasoning\memory_retrieval_layer.py)
+- Owner: [src/lumen/reasoning/memory_retrieval_layer.py](../src/lumen/reasoning/memory_retrieval_layer.py)
 - Input: chosen route plus canonical prompt context
 - Output: advisory retrieval context only
 - Not allowed:
@@ -57,7 +57,7 @@ Downstream layers should consume this contract or a read-only projection of it i
 
 ### Tool execution
 
-- Owner: [src/lumen/services/tool_execution_service.py](C:\Users\aleks\Desktop\lumen1.1\src\lumen\services\tool_execution_service.py)
+- Owner: [src/lumen/services/tool_execution_service.py](../src/lumen/services/tool_execution_service.py)
 - Input: explicit execution request
 - Output: tool result plus archive writeback
 - Not allowed:
@@ -66,7 +66,7 @@ Downstream layers should consume this contract or a read-only projection of it i
 
 ### Response pipeline
 
-- Owner: [src/lumen/reasoning/response_packaging_support.py](C:\Users\aleks\Desktop\lumen1.1\src\lumen\reasoning\response_packaging_support.py)
+- Owner: [src/lumen/reasoning/response_packaging_support.py](../src/lumen/reasoning/response_packaging_support.py)
 - Scope: interactive reply shaping, packaging, observability
 - Not allowed:
   - changing route authority
@@ -74,7 +74,7 @@ Downstream layers should consume this contract or a read-only projection of it i
 
 ### Reporting
 
-- Owner: [src/lumen/reporting/output_formatter.py](C:\Users\aleks\Desktop\lumen1.1\src\lumen\reporting\output_formatter.py)
+- Owner: [src/lumen/reporting/output_formatter.py](../src/lumen/reporting/output_formatter.py)
 - Scope: durable/exportable/report-facing payload formatting
 - Not allowed:
   - interactive route decisions
@@ -114,6 +114,6 @@ Downstream layers should consume this contract or a read-only projection of it i
 
 ## Document relationship
 
-- [docs/runtime_architecture_authority.md](C:\Users\aleks\Desktop\lumen1.1\docs\runtime_architecture_authority.md): current runtime truth
-- [docs/lumen_v2_authority_model.md](C:\Users\aleks\Desktop\lumen1.1\docs\lumen_v2_authority_model.md): authority-policy and deferred-cleanup note
-- [LUMEN_V2_ARCHITECTURE.md](C:\Users\aleks\Desktop\lumen1.1\LUMEN_V2_ARCHITECTURE.md): high-level current architecture map
+- [docs/runtime_architecture_authority.md](runtime_architecture_authority.md): current runtime truth
+- [docs/lumen_v2_authority_model.md](lumen_v2_authority_model.md): authority-policy and deferred-cleanup note
+- [LUMEN_V2_ARCHITECTURE.md](../LUMEN_V2_ARCHITECTURE.md): high-level current architecture map

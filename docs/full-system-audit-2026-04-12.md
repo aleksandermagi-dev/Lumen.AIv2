@@ -1,12 +1,14 @@
 # Full-System Audit Closure 2026-04-12
 
+> Historical note: this document records an earlier implementation/audit phase and is not the current runtime authority. For current status, see [README.md](../README.md), [LUMEN_V2_RELEASE_STATUS.md](../LUMEN_V2_RELEASE_STATUS.md), and [LUMEN_V2_ARCHITECTURE.md](../LUMEN_V2_ARCHITECTURE.md).
+
 ## Outcome
 
 The final code-side post-addition audit completed successfully. Lumen remains one coherent system across UI, reasoning, persistence, tooling, safety, diagnostics, and packaged/runtime validation, and supervised ML dataset support is now backed by native SQLite dataset ingestion and curation.
 
 ## Regressions Found in This Pass
 
-- No new product regressions were found in the final Phase 26 audit.
+- No new product regressions were found in this historical audit.
 - No active audit/runtime regression remains after the packaged-smoke isolation fix and fresh packaged rebuild verification.
 
 ## Root Cause
@@ -26,7 +28,7 @@ The final code-side post-addition audit completed successfully. Lumen remains on
   - focused regression slices
   - full repository suite
   - source full validation on isolated audit data
-  - direct packaged smoke validation against [lumen.exe](/C:/Users/aleks/Desktop/lumen1.1/dist/lumen.exe)
+  - direct packaged smoke validation against `dist/lumen.exe`
 
 ## Systems Revalidated
 
@@ -34,7 +36,7 @@ The final code-side post-addition audit completed successfully. Lumen remains on
 - Full repository suite passed: `1061 passed, 2 skipped`.
 - Source full validation on isolated audit data completed without blockers.
 - Refreshed `system_sweep --mode fast` completed in about `42.6s`.
-- Rebuilt [lumen.exe](/C:/Users/aleks/Desktop/lumen1.1/dist/lumen.exe) and reran `system_sweep --mode fast --force-fresh-packaged` in about `46.9s`, with packaged verdict `pass`, parity `aligned`, and requested-path report authority.
+- Rebuilt `dist/lumen.exe` and reran `system_sweep --mode fast --force-fresh-packaged` in about `46.9s`, with packaged verdict `pass`, parity `aligned`, and requested-path report authority.
 - Direct packaged smoke validation completed with:
   - requested-path report authority
   - boot status `ok`

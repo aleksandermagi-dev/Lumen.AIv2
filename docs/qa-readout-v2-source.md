@@ -1,5 +1,7 @@
 # Lumen v2 QA Readout
 
+> Historical note: this document records an earlier implementation/audit phase and is not the current runtime authority. For current status, see [README.md](../README.md), [LUMEN_V2_RELEASE_STATUS.md](../LUMEN_V2_RELEASE_STATUS.md), and [LUMEN_V2_ARCHITECTURE.md](../LUMEN_V2_ARCHITECTURE.md).
+
 - Validation label: `source_full_validation`
 - Execution mode: `source`
 - Content status: `runtime/provider gated`
